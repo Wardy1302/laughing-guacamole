@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>3rd Page</title>
+
+			<link rel="stylesheet" href="styles/style.css">
+
+			<style>
+				div
+				{
+					float: left;
+				}
+				div2
+				{
+					float: center;
+				}
+			</style>
+
+			<script>
+				function txtChange() 
+				{
+    				var data = document.getElementById("forename").value;
+    				var data2 = document.getElementById("surname").value;
+					var text = "Your name was entered as " + data + " "+data2+".";
+					if (data == "")
+					{
+						alert("You have not entered your name")
+					}
+					else
+					{
+						document.getElementById("output_here").innerHTML = text;
+					}
+
+				}
+				function clearCanvas()
+				{
+					var canvas = document.getElementById("myCanvas");
+					var ctx = canvas.getContext("2d");
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+				}
+				function drawCircle()
+				{
+					var x = document.getElementById("circleX").value;
+					var y = document.getElementById("circleY").value;
+					var d = document.getElementById("circleD").value;
+					var canvas = document.getElementById("myCanvas");
+					var ctx = canvas.getContext("2d");
+					var theColour = document.getElementById("colours").value;
+					var fillCheckbox = document.getElementById("fillOpt");
+					
+					ctx.beginPath();
+					ctx.arc(x,y,d,0,2*Math.PI);
+					if (fillCheckbox.checked == true)
+					{
+						ctx.fillStyle = theColour;
+						ctx.fill();
+					}
+					else
+					{
+						ctx.strokeStyle = theColour;
+						ctx.stroke();
+					}
+				}
+				function drawRect()
+				{
+					var x = document.getElementById("rectX").value;
+					var y = document.getElementById("rectY").value;
+					var w = document.getElementById("rectW").value;
+					var h = document.getElementById("rectH").value;
+					var canvas = document.getElementById("myCanvas");
+					var ctx = canvas.getContext("2d");
+					var theColour = document.getElementById("rectColours").value;
+					var fillCheckbox = document.getElementById("rectfillOpt");
+					
+					ctx.beginPath();
+					ctx.rect(x,y,w,h);
+					if (fillCheckbox.checked == true)
+					{
+						ctx.fillStyle = theColour;
+						ctx.fill();
+					}
+					else
+					{
+						ctx.strokeStyle = theColour;
+						ctx.stroke();
+					}
+				}
+				function formRangeChange(val,valDest)
+				{
+					var data = val;
+					var t = "= " + data.toString();
+					document.getElementById(valDest).innerHTML = t;
+				}
+			</script>
+		</head>
+
+		<body>
+			<a href="index.html" id="pageLink">Back to first page</a>
+			<br>
+
+			<form id="form1" action="" onsubmit="txtChange()">
+  				Forename:
+  				<input type="text" name="forename" id="forename">
+  				Surname:
+  				<input type="text" name="surname" id="surname">
+			</form>
+
+			<button onclick="txtChange()">Change name</button>
+  			<p id="output_here">This text will be replaced</p>
+  			<div>
+  				<form id="form1">
+  					<h4>Rectangle</h4>
+  					X position:
+  					<input type="range" name="x" id="rectX" min="0" max="500" onchange="formRangeChange(this.value,'rxTxt')">
+  					<p id="rxTxt">= 250</p>
+  					Y position:
+  					<input type="range" name="y" id="rectY" min="0" max="500" onchange="formRangeChange(this.value,'ryTxt')">
+  					<p id="ryTxt">= 250</p>
+  					Width     :
+  					<input type="range" name="w" id="rectW" min="5" max="295" onchange="formRangeChange(this.value,'rwTxt')">
+  					<p id="rwTxt">= 150</p>
+  					Height    :
+  					<input type="range" name="h" id="rectH" min="5" max="295" onchange="formRangeChange(this.value,'rhTxt')">
+  					<p id="rhTxt">= 150</p>
+  					Fill?     :
+  					<input type="checkbox" name="rectfillOpt" id="rectfillOpt">
+  					<br>
+  					<select name="rectColours" id="rectColours">
+  					<option value="#FF0000">red</option>
+  					<option value="#FF5500">orange</option>
+  					<option value="#FFFF00">yellow</option>
+  					<option value="#00CC00">green</option>
+  					<option value="#0044CC">blue</option>
+  					<option value="#330099">purple</option>
+  					<option value="#FF00FF">pink</option>
+  					<option value="#000000">black</option>
+  					</select>
+  					
+				</form>
+				<button onclick="drawRect()" style="width: 300px">Draw Rectangle</button>
+			</div>
+
+			<div>
+  				<form id="form1">
+  					<h4>Circle</h4>
+  					X position:
+  					<input type="range" name="x" id="circleX" min="0" max="500" onchange="formRangeChange(this.value,'xTxt')">
+  					<p id="xTxt">= 250</p>
+  					Y position:
+  					<input type="range" name="y" id="circleY" min="0" max="500" onchange="formRangeChange(this.value,'yTxt')">
+  					<p id="yTxt">= 250</p>
+  					Diameter  :
+  					<input type="range" name="z" id="circleD" min="5" max="295" onchange="formRangeChange(this.value,'dTxt')">
+  					<p id="dTxt">= 150</p>
+  					Fill?     :
+  					<input type="checkbox" name="fillOpt" id="fillOpt">
+  					<br>
+  					<select name="colours" id="colours">
+  					<option value="#FF0000">red</option>
+  					<option value="#FF5500">orange</option>
+  					<option value="#FFFF00">yellow</option>
+  					<option value="#00CC00">green</option>
+  					<option value="#0044CC">blue</option>
+  					<option value="#330099">purple</option>
+  					<option value="#FF00FF">pink</option>
+  					<option value="#000000">black</option>
+  					</select>
+				</form>
+				<button onclick="drawCircle()" style="width: 300px">Draw Circle</button>
+			</div>
+
+			<div2>
+  				<br>
+  				<button onclick="clearCanvas()" style="background-color: lime">Clear</button>
+  				<br>
+  				<canvas id="myCanvas" width="500" height="500" style="border:1px dashed black;">
+					Your browser does not support canvases
+				</canvas>
+			</div2>
+
+		</body>
+	</html>

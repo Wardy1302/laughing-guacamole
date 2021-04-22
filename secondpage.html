@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>2nd Page</title>
+
+			<link rel="icon" href="images/computerIMG.png">
+
+			<link rel="stylesheet" href="styles/style.css">
+
+
+		</head>
+		<body>
+
+			<h1>The second page</h1>
+
+			<!--The height of this image is increased by 10 when it is clicked-->
+			<img src="images/computerIMG.png" id = "computer" width="240" height="180" alt="Image of a computer" onclick="height += 10"/>
+			<br>
+
+			<a href="index.html" id="pageLink">Back to first page</a>
+
+			<br><br><br><br>
+
+			<h5 style="text-decoration: underline">a very small heading </h5>
+			<ol>
+				<li> The first item in an ordered list</li>
+				<li>
+					<a href="index.html" id="pageLink">another link back to first page</a>
+				</li>
+				<li> 
+					a stretchful image
+					<img src="images/computerIMG.png" id = "computer2" width="70" height="50" alt="Image of a computer" onclick="width += 10"/> 
+				</li>
+				<li value="5">the 4th item in the ordered list </li>
+				<li class="isalmostInvisible"> The last item in the ordered list (0.2 opacity)</li>
+
+			</ol>
+
+			<br><br>
+
+			<form id="aForm">
+				<label for="txtinput"> Please input some text </label>
+				<input type="text" name="txtinput" id="theTXTinput">
+				<br>
+				<label for="check1"> Did you input some text? </label>
+				<input type="checkbox" name="check1">
+				<br>
+				<button>Submit</button>
+			</form>
+
+			<form id = "form1" action = false">
+				<select name="cars" id="cars">
+  					<option value="volvo">Volvo</option>
+  					<option value="saab">Saab</option>
+  					<option value="mercedes">Mercedes</option>
+  					<option value="audi">Audi</option>
+				</select>
+			</form>
+		</body>
+		
+	</html>
