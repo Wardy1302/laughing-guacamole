@@ -1,0 +1,48 @@
+body,
+p 
+{
+  margin: 10;
+  color: blue;
+  text-align: left;
+  font-family: Comic Sans MS;
+}
+h1 
+{
+  margin-top: 10;
+  color: tomato;
+  text-align: center;
+  border: 3px dotted #FFC080;
+}
+li 
+{
+	text-align: left;
+}
+.isalmostInvisible
+{
+	border-style: dashed;
+	border-color: green;
+	border-top-color: purple;
+
+	opacity: 0.2;
+	color: grey;
+
+	width: 200px;
+}
+
+#aForm
+{
+	background-color: #A2441B;
+	color :cyan;
+	font-family: sans-serif; 
+}
+#form1
+{
+	background-color: cyan;
+	width: 300px;
+}
+#pageLink
+{
+	background-color: orange;
+	color:black;
+	font-family: Consolas;
+}
